@@ -38,6 +38,29 @@ if(isset($_POST['regAdmin'])){
     }
 }
 
+// register new member
+if(isset($_POST['addMember'])){
+    $member_name = $_POST['member_name'];
+    $rolid = $_POST['rolid'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $dob = $_POST['dob'];
+    $address = $_POST['address'];
+    $gender = $_POST['gender'];
+    $pass = $_POST['pass'];
+    $color = $_POST['color'];
+
+    $add_members = "INSERT INTO `members` (rol_id, name, dob, gender, address, email, password, phone, theme_color) VALUES ('$rolid', '$member_name', '$dob', '$gender', '$address', '$email', '$pass', '$phone', '$color')";
+
+
+    if(mysqli_query($conn, $add_members)){
+        $msg[] = "Members Added Successfully";
+    }else{
+        $msg[] = "Something Went Wrong";
+    }
+}
+
+
 
 
 ?>
@@ -59,15 +82,10 @@ if(isset($_POST['regAdmin'])){
 <body>
     <?php include './adminheader.php' ?>
 
-    <button type="button" class="admin_menu"><i class="fa-sharp fa-solid fa-bars"></i></button>
-
-    <ul class="admin_option">
-        <li id="add_members">Add Members</li>
-        <li id="add_admin">Add Admin</li>
-    </ul>
-
+    <!-- admin registration form -->
     <form action="" method="post" id="admin_form">
         <h1>Add Admin</h1>
+        <i class="fa-solid fa-circle-xmark" id="close_admin"></i>
         <?php
 
         if (isset($msg)) {
@@ -98,6 +116,61 @@ if(isset($_POST['regAdmin'])){
         </div>
 
         <button type="submit" name="regAdmin">Register Admin</button>
+    </form>
+
+    <!-- members registration form -->
+    <form action="" method="post" id="members_form">
+        <h1>Add Members</h1>
+        <i class="fa-solid fa-circle-xmark" id="close_member"></i>
+        <?php
+
+        if (isset($msg)) {
+            foreach ($msg as $msg) {
+                echo '<div class="msg_body">' . $msg . '</div>';
+            }
+        }
+        
+        ?>
+        <div class="input_box">
+            <input type="text" name="member_name" id="" placeholder="Name">
+        </div>
+
+        <div class="input_box">
+            <input type="text" name="rolid" id="" placeholder=" Roll">
+        </div>
+
+        <div class="input_box">
+            <input type="email" name="email" id="" placeholder="Email">
+        </div>
+
+        <div class="input_box">
+            <input type="text" name="phone" id="" placeholder="Phone">
+        </div>
+
+        <div class="input_box">
+            <input type="date" name="dob" id="" placeholder="Date of Birth">
+        </div>
+
+        <div class="input_box">
+            <input type="text" name="address" id="" placeholder="Address">
+        </div>
+
+        <div class="input_box">
+            <select name="gender" id="">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="input_box">
+            <input type="password" name="pass" id="" placeholder="Password">
+        </div>
+
+        <div class="input_box">
+            <input type="color" name="color" id="" placeholder="Your Color">
+        </div>
+
+        <button type="submit" name="addMember">Register Members</button>
     </form>
 
     <?php include './footer.php' ?>
@@ -131,10 +204,6 @@ if(isset($_POST['regAdmin'])){
             }
         })
 
-        // show admin menu
-        admin_menu.addEventListener("click", () => {
-            admin_option.classList.toggle("show_admin_menu");
-        })
 
 
         // show admin add form
@@ -144,6 +213,28 @@ if(isset($_POST['regAdmin'])){
         showAdminFormOption.addEventListener("click" ,() => {
             addadmin.classList.toggle("showform")
         })
+
+        const close_admin = document.getElementById("close_admin");
+
+        close_admin.addEventListener("click" , () => {
+            addadmin.classList.remove("showform");
+        })
+
+        // show members form
+        const members_form = document.getElementById("members_form");
+        const showMembersFormOption = document.getElementById("add_members");
+
+        showMembersFormOption.addEventListener("click", () => {
+            members_form.classList.toggle("showform")
+        })
+
+        const close_member = document.getElementById("close_member");
+
+        close_member.addEventListener("click" , () => {
+            members_form.classList.remove("showform");
+        })
+
+
     </script>
 </body>
 

@@ -1,10 +1,10 @@
 <style>
-    header{
+    header {
         background-color: #10264B;
         padding: 20px;
     }
 
-    header .left{
+    header .left {
         width: 100%;
         display: flex;
         align-items: center;
@@ -12,16 +12,16 @@
         position: relative;
     }
 
-    header .left img{
+    header .left img {
         width: 20%;
     }
 
-    header .left i{
+    header .left i {
         color: white;
         font-size: 30px;
     }
 
-    header .left h1{
+    header .left h1 {
         color: white;
         font-family: cursive;
     }
@@ -38,18 +38,19 @@
         z-index: 10000000000;
     }
 
-    header .right.show{
+    header .right.show {
         left: 0;
     }
 
-    header .right ul{
+    header .right ul {
         list-style-type: none;
     }
 
-    header .right li{
+    header .right li {
         margin-bottom: 10px;
     }
-    header .right ul li a{
+
+    header .right ul li a {
         text-decoration: none;
         font-size: 20px;
         color: black;
@@ -67,8 +68,12 @@
     <div class="right" id="menu">
         <ul>
             <li>Hello</li>
-            <li><h1><?php echo $admin['l_name'] ?></h1></li>
+            <li>
+                <h1><?php echo $admin['l_name'] ?></h1>
+            </li>
             <li><a href="./admin.php?logout=<?php $admin['id'] ?>"><i class="fa-solid fa-right-from-bracket"></i> Logout Admin</a></li>
+            <li id="add_members">Add Members</li>
+            <li id="add_admin">Add Admin</li>
         </ul>
     </div>
 </header>
@@ -81,5 +86,9 @@
 
     tog.addEventListener("click", () => {
         menu.classList.toggle("show");
+    })
+
+    menu.addEventListener("click", () => {
+        menu.classList.remove("show")
     })
 </script>

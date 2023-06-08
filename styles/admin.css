@@ -37,16 +37,33 @@
 
 
 
-#admin_form{
+#admin_form, #members_form{
     position: absolute;
-    top: -100%;
+    top: -1200%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     margin: 0;
     transition: 0.5s linear;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+#admin_form #close_admin{
+    left: 322px;
+    top: 29px;
+}
+
+#members_form #close_member{
+    left: 322px;
+    top: 29px;
 }
 
 #admin_form.showform{
+    top: 20%;
+}
+
+
+#members_form.showform{
     top: 20%;
 }
