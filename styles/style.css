@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background: url('../siteAssets/bg.png');
+    background-size: auto;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.msg_body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #ed9090;
+    border: 2px solid #d93030;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    height: 50px;
+    margin: 10px 0;
+}

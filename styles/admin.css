@@ -1,0 +1,52 @@
+.admin_menu{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: yellow;
+    font-size: 18px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+}
+
+.admin_option{
+    list-style-type: none;
+    position: absolute;
+    right: 20px;
+    bottom: 100px;
+    visibility: hidden;
+}
+
+.admin_option.show_admin_menu{
+    visibility: visible;
+}
+
+.admin_option li{
+    list-style-type: none;
+    padding: 10px;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    background-color: yellow;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+
+
+#admin_form{
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    margin: 0;
+    transition: 0.5s linear;
+}
+
+#admin_form.showform{
+    top: 20%;
+}
