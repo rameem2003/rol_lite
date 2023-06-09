@@ -13,43 +13,50 @@
 </head>
 
 <body>
-    <?php include './loginPageHeader.php' ?>
+    <?php include './header.php' ?>
 
-    <form action="" method="post">
-        <h1>Login</h1>
-        <div class="input_box">
-            <input type="email" name="login_email" id="" placeholder="Email">
-            <i class="fa-solid fa-envelope"></i>
-        </div>
+    <!-- members -->
+    <section class="members">
+        <!-- load all members -->
+        <?php
+        include './configuration/configurations.php';
+        $load_members = "SELECT * FROM `members` ORDER BY rol_id ASC";
+        $load_members_query = mysqli_query($conn, $load_members);
+
+        if (mysqli_num_rows($load_members_query) > 0) {
+            while ($row = mysqli_fetch_assoc($load_members_query)) {
+        ?>
+                <a class="member" href="./view_profile.php?view=<?php echo $row['rol_id'] ?>" style="background: <?php echo $row['theme_color']; ?>">
+                    <div class="img">
+                        <?php
+                        if ($row['gender'] == "male") {
+                            $img = "undraw_male_avatar_g98d.svg";
+                        }
+                        if ($row['gender'] == "female") {
+                            $img = "undraw_female_avatar_efig.svg";
+                        }
+                        ?>
+
+                        <img src="<?php echo "./siteAssets/" . $img; ?>" alt="">
+                    </div>
+
+                    <div class="text">
+                        <h1><?php echo $row['name'] ?></h1>
+                        <h2>ID: <?php echo $row['rol_id'] ?></h2>
+                    </div>
+                </a>
+        <?php
+            }
+        } else {
+            echo "No Data Found";
+        }
+
+        ?>
 
 
-        <div class="input_box">
-            <input type="password" name="login_pass" id="password" placeholder="Password">
-            <i class="fa-solid fa-lock"></i>
-            <i class="fa-solid fa-eye tog" id="passtog"></i>
-        </div>
-
-        <button type="submit" name="login">Login</button>
-    </form>
+    </section>
 
     <?php include './footer.php' ?>
-
-    <script>
-        const password = document.getElementById("password");
-        const passtog = document.getElementById("passtog");
-
-
-        // password show/hide
-        passtog.addEventListener("click", () => {
-            if (password.type === "password") {
-                password.type = "text";
-                passtog.classList.replace("fa-eye", "fa-eye-slash")
-            } else {
-                password.type = "password";
-                passtog.classList.replace("fa-eye-slash", "fa-eye")
-            }
-        })
-    </script>
 </body>
 
 </html>

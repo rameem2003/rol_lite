@@ -1,0 +1,44 @@
+main{
+    background-color: red;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    flex-direction: column;
+    color: white;
+}
+
+main .img{
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+main img{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.details{
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+    color: black;
+}
+
+.details h1{
+    font-size: 18px;
+}
+
+.dl{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}

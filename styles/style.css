@@ -2,18 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body{
     background: url('../siteAssets/bg.png');
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
 }
 
@@ -30,4 +30,40 @@ body{
     font-size: 22px;
     height: 50px;
     margin: 10px 0;
+}
+
+
+.members{
+    height: 500px;
+    overflow-y: scroll;
+}
+
+
+.members .member {
+    text-decoration: none;
+    display: block;
+    width: 90%;
+    height: 300px;
+    margin: 20px auto;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;
+}
+.members .member img{
+    background-color: white;
+    /* height: 250px;
+    width: 250px; */
+    padding: 10px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.members .member img{
+    width: 50%;
+}
+
+.members .member .text h1{
+    margin-bottom: 20px;
 }

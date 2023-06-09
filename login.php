@@ -1,28 +1,3 @@
-<?php 
-
-include './configuration/configurations.php';
-session_start();
-
-if(isset($_POST['login'])){
-    $user = $_POST['login_user'];
-    $password = $_POST['login_pass'];
-
-    $search_admin = "SELECT * FROM `admin` WHERE username = '$user' AND password = '$password'";
-
-    $admin_query = mysqli_query($conn, $search_admin);
-
-    if(mysqli_num_rows($admin_query) > 0){
-        $row = mysqli_fetch_assoc($admin_query);
-        $_SESSION['id'] = $row['id'];
-        header('location:admin.php');
-    }else{
-        $msg[] = "Admin not exist";
-    }
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,19 +16,10 @@ if(isset($_POST['login'])){
     <?php include './header.php' ?>
 
     <form action="" method="post">
-        <h1>Admin Login</h1>
-        <?php
-
-        if (isset($msg)) {
-            foreach ($msg as $msg) {
-                echo '<div class="msg_body">' . $msg . '</div>';
-            }
-        }
-        
-        ?>
+        <h1>Login</h1>
         <div class="input_box">
-            <input type="text" name="login_user" id="" placeholder="Username">
-            <i class="fa-solid fa-user"></i>
+            <input type="email" name="login_email" id="" placeholder="Email">
+            <i class="fa-solid fa-envelope"></i>
         </div>
 
 

@@ -62,7 +62,8 @@
     </div>
     <div class="right" id="menu">
         <ul>
-            <li><a href="./"><i class="fa-solid fa-power-off"></i> Login</a></li>
+            <li><a href="./"><i class="fa-solid fa-home"></i> Home</a></li>
+            <li><a href="./login.php"><i class="fa-solid fa-power-off"></i> Login</a></li>
             <li><a href="./admin_login.php"><i class="fa-solid fa-shield"></i> Admin Login</a></li>
         </ul>
     </div>

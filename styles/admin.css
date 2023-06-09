@@ -45,7 +45,7 @@
     width: 100%;
     margin: 0;
     transition: 0.5s linear;
-    height: 500px;
+    /* height: 500px; */
     overflow-y: scroll;
 }
 
@@ -66,4 +66,39 @@
 
 #members_form.showform{
     top: 20%;
+}
+
+.members{
+    height: 500px;
+    overflow-y: scroll;
+}
+
+
+.members .member {
+    text-decoration: none;
+    display: block;
+    width: 90%;
+    height: 300px;
+    margin: 20px auto;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;
+}
+.members .member img{
+    background-color: white;
+    /* height: 250px;
+    width: 250px; */
+    padding: 10px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.members .member img{
+    width: 50%;
+}
+
+.members .member .text h1{
+    margin-bottom: 20px;
 }
