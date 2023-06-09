@@ -174,6 +174,8 @@ if (isset($_POST['addMember'])) {
         <button type="submit" name="addMember">Register Members</button>
     </form>
 
+    <h1 class="admin">Welcome <?php echo $admin['l_name'] ?></h1>
+
 
     <!-- members -->
     <section class="members">

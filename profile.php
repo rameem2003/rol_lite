@@ -1,21 +1,33 @@
 <?php
 
 include './configuration/configurations.php';
-if (isset($_GET['view'])) {
-    $profile_id = $_GET['view'];
-    $show_profile = "SELECT * FROM `members` WHERE rol_id = '$profile_id'";
 
-    $run_query = mysqli_query($conn, $show_profile);
+session_start();
+$rol_id = $_SESSION['rol_id'];
 
-    if (mysqli_num_rows($run_query) > 0) {
-        $row = mysqli_fetch_assoc($run_query);
-    }
+if(!isset($rol_id)){
+    header('location:login.php');
 }
 
-if(isset($_GET['dl'])){
+$show_profile = "SELECT * FROM `members` WHERE rol_id = '$rol_id'";
+
+$run_query = mysqli_query($conn, $show_profile);
+
+if (mysqli_num_rows($run_query) > 0) {
+    $row = mysqli_fetch_assoc($run_query);
+}
+
+if (isset($_GET['dl'])) {
     $dlid = $_GET['dl'];
     mysqli_query($conn, "DELETE FROM `members` WHERE rol_id = '$dlid'");
-    header('location:./admin.php');
+    header('location:./');
+}
+
+if(isset($_GET['logout'])){
+    $logid = $_GET['logout'];
+    session_destroy();
+    unset($logid);
+    header('location:login.php');
 }
 
 ?>
@@ -56,7 +68,8 @@ if(isset($_GET['dl'])){
         <h1 class="name"><?php echo $row['name'] ?></h1>
         <h2>ID: <?php echo $row['rol_id'] ?></h2>
         <div class="action">
-            <a class="dl" href="./view_profile_as_admin.php?dl=<?php echo $row['rol_id'] ?>"><i class="fa-solid fa-trash"></i></a>
+            <a class="dl" href="./profile.php?dl=<?php echo $row['rol_id'] ?>"><i class="fa-solid fa-trash"></i></a>
+            <a class="dl" href="./profile.php?logout=<?php echo $row['rol_id'] ?>"><i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </main>
 

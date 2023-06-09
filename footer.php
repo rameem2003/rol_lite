@@ -3,6 +3,10 @@
         background-color: white;
         padding: 10px;
         text-align: center;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
     }
 
     footer p{

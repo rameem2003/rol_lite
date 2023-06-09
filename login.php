@@ -1,3 +1,27 @@
+<?php
+include './configuration/configurations.php';
+session_start();
+
+if(isset($_POST['login'])){
+    $login_email = $_POST['login_email'];
+    $login_pass = $_POST['login_pass'];
+
+    $show_member = "SELECT * FROM `members` WHERE email = '$login_email' AND password = '$login_pass'";
+
+    $show_member_query = mysqli_query($conn, $show_member);
+
+    if(mysqli_num_rows($show_member_query) > 0){
+        $member = mysqli_fetch_assoc($show_member_query);
+        $_SESSION['rol_id'] = $member['rol_id'];
+        header('location:profile.php');
+
+    }else{
+        $msg[] = "Member not exist";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +41,16 @@
 
     <form action="" method="post">
         <h1>Login</h1>
+        <?php
+
+        if (isset($msg)) {
+            foreach ($msg as $msg) {
+                echo '<div class="msg_body">' . $msg . '</div>';
+            }
+        }
+        
+        ?>
+
         <div class="input_box">
             <input type="email" name="login_email" id="" placeholder="Email">
             <i class="fa-solid fa-envelope"></i>
