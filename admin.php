@@ -81,6 +81,7 @@ if (isset($_POST['addMember'])) {
 </head>
 
 <body>
+    <div id="perloader"></div>
     <?php include './adminheader.php' ?>
 
     <!-- admin registration form -->
@@ -187,12 +188,13 @@ if (isset($_POST['addMember'])) {
         if (mysqli_num_rows($load_members_query) > 0) {
             while ($row = mysqli_fetch_assoc($load_members_query)) {
         ?>
-                <a class="member" href="./view_profile_as_admin.php?view=<?php echo $row['rol_id']?>" style="background: <?php echo $row['theme_color']; ?>">
+                <a class="member" href="./view_profile_as_admin.php?view=<?php echo $row['rol_id'] ?>" style="background: <?php echo $row['theme_color']; ?>">
                     <div class="img">
                         <?php
-                        if($row['gender'] == "male"){
+                        if ($row['gender'] == "male") {
                             $img = "undraw_male_avatar_g98d.svg";
-                        }if($row['gender'] == "female"){
+                        }
+                        if ($row['gender'] == "female") {
                             $img = "undraw_female_avatar_efig.svg";
                         }
                         ?>
@@ -207,7 +209,7 @@ if (isset($_POST['addMember'])) {
                 </a>
         <?php
             }
-        }else{
+        } else {
             echo "No Data Found";
         }
 
@@ -275,6 +277,12 @@ if (isset($_POST['addMember'])) {
 
         close_member.addEventListener("click", () => {
             members_form.classList.remove("showform");
+        })
+
+        const loader = document.getElementById("perloader");
+
+        window.addEventListener("load", () => {
+            loader.style.display = "none"
         })
     </script>
 </body>

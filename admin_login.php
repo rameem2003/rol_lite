@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 include './configuration/configurations.php';
 session_start();
 
-if(isset($_POST['login'])){
+if (isset($_POST['login'])) {
     $user = $_POST['login_user'];
     $password = $_POST['login_pass'];
 
@@ -11,11 +11,11 @@ if(isset($_POST['login'])){
 
     $admin_query = mysqli_query($conn, $search_admin);
 
-    if(mysqli_num_rows($admin_query) > 0){
+    if (mysqli_num_rows($admin_query) > 0) {
         $row = mysqli_fetch_assoc($admin_query);
         $_SESSION['id'] = $row['id'];
         header('location:admin.php');
-    }else{
+    } else {
         $msg[] = "Admin not exist";
     }
 }
@@ -38,6 +38,7 @@ if(isset($_POST['login'])){
 </head>
 
 <body>
+    <div id="perloader"></div>
     <?php include './header.php' ?>
 
     <form action="" method="post">
@@ -49,7 +50,7 @@ if(isset($_POST['login'])){
                 echo '<div class="msg_body">' . $msg . '</div>';
             }
         }
-        
+
         ?>
         <div class="input_box">
             <input type="text" name="login_user" id="" placeholder="Username">
@@ -82,6 +83,12 @@ if(isset($_POST['login'])){
                 password.type = "password";
                 passtog.classList.replace("fa-eye-slash", "fa-eye")
             }
+        })
+
+        const loader = document.getElementById("perloader");
+
+        window.addEventListener("load", () => {
+            loader.style.display = "none"
         })
     </script>
 </body>

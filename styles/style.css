@@ -17,6 +17,18 @@ body{
     flex-direction: column;
 }
 
+#perloader{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    background: #091E40 url('../siteAssets/loader.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+}
+
 .msg_body{
     display: flex;
     align-items: center;

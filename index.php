@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div id="perloader"></div>
     <?php include './header.php' ?>
 
     <!-- members -->
@@ -57,6 +58,15 @@
     </section>
 
     <?php include './footer.php' ?>
+
+
+    <script>
+        const loader = document.getElementById("perloader");
+
+        window.addEventListener("load", () => {
+            loader.style.display = "none"
+        })
+    </script>
 </body>
 
 </html>

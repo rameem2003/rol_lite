@@ -37,6 +37,8 @@ if(isset($_POST['login'])){
 </head>
 
 <body>
+    <div id="perloader"></div>
+
     <?php include './header.php' ?>
 
     <form action="" method="post">
@@ -82,6 +84,12 @@ if(isset($_POST['login'])){
                 password.type = "password";
                 passtog.classList.replace("fa-eye-slash", "fa-eye")
             }
+        })
+
+        const loader = document.getElementById("perloader");
+
+        window.addEventListener("load", () => {
+            loader.style.display = "none"
         })
     </script>
 </body>
