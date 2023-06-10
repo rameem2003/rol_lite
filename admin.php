@@ -15,6 +15,7 @@ if (mysqli_num_rows($show_admin) > 0) {
 }
 
 if (isset($_GET['logout'])) {
+    echo "<div id='perloader'></div>";
     $id = $_GET['logout'];
     session_destroy();
     unset($id);
