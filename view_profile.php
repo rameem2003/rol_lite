@@ -34,6 +34,8 @@ if (isset($_GET['view'])) {
 </head>
 
 <body>
+    <?php include './header.php'; ?>
+
     <main style="background: <?php echo $row['theme_color'] ?>;">
         <div class="img">
             <?php
@@ -48,7 +50,7 @@ if (isset($_GET['view'])) {
             <img src="<?php echo "./siteAssets/" . $img; ?>" alt="">
         </div>
 
-        <h1><?php echo $row['name'] ?></h1>
+        <h1 class="name"><?php echo $row['name'] ?></h1>
         <h2>ID: <?php echo $row['rol_id'] ?></h2>
     </main>
 
@@ -60,7 +62,6 @@ if (isset($_GET['view'])) {
         <h1>Email: <?php echo $row['email'] ?></h1>
     </main>
 
-    <?php include './footer.php' ?>
 </body>
 
 </html>

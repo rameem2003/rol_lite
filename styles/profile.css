@@ -1,17 +1,21 @@
+
 main{
     background-color: red;
-    height: 300px;
-    width: 100%;
+    height: auto;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     padding: 20px;
     flex-direction: column;
     color: white;
+    margin: 20px auto;
+    border-radius: 10px;
 }
 
 main .name{
     text-align: center;
+    font-size: 28px;
 }
 
 main .img{
@@ -38,7 +42,7 @@ main img{
 }
 
 .details h1{
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .dl{

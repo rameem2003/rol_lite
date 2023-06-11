@@ -1,6 +1,28 @@
 <?php
 
 include './configuration/configurations.php';
+session_start();
+$admin_id = $_SESSION['id'];
+
+if (!isset($admin_id)) {
+    header('location:./');
+}
+
+$show_admin = mysqli_query($conn, "SELECT * FROM `admin` WHERE id = '$admin_id'");
+
+if (mysqli_num_rows($show_admin) > 0) {
+    $admin = mysqli_fetch_assoc($show_admin);
+}
+
+if (isset($_GET['logout'])) {
+    echo "<div id='perloader'></div>";
+    $id = $_GET['logout'];
+    session_destroy();
+    unset($id);
+    header('location:./');
+}
+
+
 if (isset($_GET['view'])) {
     $profile_id = $_GET['view'];
     $show_profile = "SELECT * FROM `members` WHERE rol_id = '$profile_id'";
@@ -39,6 +61,9 @@ if(isset($_GET['dl'])){
 </head>
 
 <body>
+
+    <?php include './adminheader.php' ?>
+
     <main style="background: <?php echo $row['theme_color'] ?>;">
         <div class="img">
             <?php

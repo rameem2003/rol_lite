@@ -5,7 +5,7 @@ include './configuration/configurations.php';
 session_start();
 $rol_id = $_SESSION['rol_id'];
 
-if(!isset($rol_id)){
+if (!isset($rol_id)) {
     header('location:login.php');
 }
 
@@ -23,7 +23,7 @@ if (isset($_GET['dl'])) {
     header('location:./');
 }
 
-if(isset($_GET['logout'])){
+if (isset($_GET['logout'])) {
     $logid = $_GET['logout'];
     session_destroy();
     unset($logid);
@@ -51,6 +51,7 @@ if(isset($_GET['logout'])){
 </head>
 
 <body>
+    <?php include './profileHeader.php' ?>
     <main style="background: <?php echo $row['theme_color'] ?>;">
         <div class="img">
             <?php
@@ -81,7 +82,9 @@ if(isset($_GET['logout'])){
         <h1>Email: <?php echo $row['email'] ?></h1>
     </main>
 
-    <?php include './footer.php' ?>
+
+
+    <!-- <?php include './footer.php' ?> -->
 </body>
 
 </html>
