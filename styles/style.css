@@ -57,7 +57,7 @@ body{
     text-decoration: none;
     display: block;
     width: 90%;
-    height: 300px;
+    height: auto;
     margin: 20px auto;
     background-color: red;
     color: white;

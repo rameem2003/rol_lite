@@ -7,7 +7,7 @@ if (isset($_POST['login'])) {
     $user = $_POST['login_user'];
     $password = $_POST['login_pass'];
 
-    $search_admin = "SELECT * FROM `admi` WHERE username = '$user' AND password = '$password'";
+    $search_admin = "SELECT * FROM `admin` WHERE username = '$user' AND password = '$password'";
 
     $admin_query = mysqli_query($conn, $search_admin);
 

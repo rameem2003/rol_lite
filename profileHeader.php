@@ -72,6 +72,7 @@
                 <h1><?php echo $row['name'] ?></h1>
             </li>
             <li><a href="./profile.php?logout=<?php echo $row['rol_id'] ?>"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+            <li><a href="./profileedit.php"><i class="fa-solid fa-edit"></i> Edit Profile</a></li>
             <li><a href="./profile.php?dl=<?php echo $row['rol_id'] ?>"><i class="fa-solid fa-trash"></i> Delete Account</a></li>
         </ul>
     </div>

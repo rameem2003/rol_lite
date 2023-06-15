@@ -70,6 +70,7 @@ if (isset($_GET['logout'])) {
         <h2>ID: <?php echo $row['rol_id'] ?></h2>
         <div class="action">
             <a class="dl" href="./profile.php?dl=<?php echo $row['rol_id'] ?>"><i class="fa-solid fa-trash"></i></a>
+            <a class="dl" href="./profileedit.php"><i class="fa-solid fa-edit"></i></a>
             <a class="dl" href="./profile.php?logout=<?php echo $row['rol_id'] ?>"><i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </main>
